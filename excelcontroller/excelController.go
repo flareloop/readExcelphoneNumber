@@ -4,9 +4,7 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"pkg/stringutil"
 	"regexp"
-	"sort"
 	"strconv"
 	"strings"
 	"utils"
@@ -74,8 +72,6 @@ func SaveExcel() {
 
 // orig 소스 파일에 대해, 중복 & 번호가 없는 것을 제외한 모든 정보 가져옴
 func ReadExcel(orgFileName string) {
-	stringutil.PrintEnterFunc()
-
 	var titleRow int
 	var weiredCount int
 	var emptycount int
@@ -156,10 +152,10 @@ func ReadExcel(orgFileName string) {
 		}
 	}
 
-	sort.Sort(stringutil.SortList(emptyList))
+	utils.Sort(emptyList)
 	WriteExcelSheet(common.EMPTY_SHEET_NAME, emptyList)
 
-	sort.Sort(stringutil.SortList(duplicatedList))
+	utils.Sort(duplicatedList)
 	WriteExcelSheet(common.DUPLICATE_SHEET_NAME, duplicatedList)
 
 	utils.Sort(validatedNumberList)
