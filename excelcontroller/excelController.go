@@ -20,7 +20,7 @@ func Init() {
 	// 기존 파일 제거
 	_, err := os.Stat(common.FILE_NAME)
 	if !os.IsNotExist(err) {
-		fmt.Printf("the file(%s) is already exist. remove it.\n", common.FILE_NAME)
+		fmt.Printf("the result file(%s) is already exist. remove it.\n", common.FILE_NAME)
 		os.Remove(common.FILE_NAME)
 	}
 
